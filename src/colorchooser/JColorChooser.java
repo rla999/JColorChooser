@@ -12,6 +12,7 @@ import java.awt.Color;
  * @author 00220682
  */
 public class JColorChooser extends javax.swing.JFrame {
+
     Color color;
 
     /**
@@ -132,7 +133,7 @@ public class JColorChooser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-public Color getColor() {
-    return color;
-}
+    public Color getColor() {
+        return color;
+    }
 }

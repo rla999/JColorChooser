@@ -11,7 +11,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
 
-/** 
+/**
  *
  * @author bburk
  */
@@ -21,6 +21,7 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
      * Creates new form JColorChooserTest
      */
     JColorChooser color;
+
     public JColorChooserTest() {
         initComponents();
         color = new JColorChooser();
@@ -87,9 +88,9 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     private void btnColorChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColorChooserActionPerformed
         JColorChooser obj = new JColorChooser();
-        Object a=obj;
-        int b= JOptionPane.showConfirmDialog(null, a, "a", JOptionPane.OK_CANCEL_OPTION);
-        if (b==0)
+        Object a = obj;
+        int b = JOptionPane.showConfirmDialog(null, a, "a", JOptionPane.OK_CANCEL_OPTION);
+        if (b == 0)
             getContentPane().setBackground(obj.getForeground());
     }//GEN-LAST:event_btnColorChooserActionPerformed
 
@@ -136,7 +137,7 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source== btnColorChooser){
+        if (source == btnColorChooser) {
             color.setVisible(true);
         }
     }
@@ -153,7 +154,7 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     @Override
     public void windowClosed(WindowEvent e) {
-        if (e.getSource().getClass()== JColorChooser.class) {
+        if (e.getSource().getClass() == JColorChooser.class) {
             System.out.print("");
             panColor.setBackground(color.getColor());
         }

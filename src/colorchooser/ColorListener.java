@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package colorchooser;
+
 import java.util.*;
+
 /**
  *
  * @author 00220682
  */
 public interface ColorListener extends EventListener {
+
     public void changeColor(ColorEvent ce);
 }

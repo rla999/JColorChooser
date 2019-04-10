@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 package colorchooser;
+
 import java.awt.Color;
 import java.util.Vector;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 /**
  *
  * @author 00220682
  */
-public class ColorChooser extends javax.swing.JPanel implements ChangeListener{
+public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
+
     private Vector listeners;
 
     /**
@@ -124,26 +127,26 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener{
         int r = sldRed.getValue();
         int g = sldGreen.getValue();
         int b = sldBlue.getValue();
-        Color color = new Color(r,g,b);
-        fireColorEvent(new ColorEvent(this,color));
+        Color color = new Color(r, g, b);
+        fireColorEvent(new ColorEvent(this, color));
     }
-    
-    public void addColorListener(ColorListener colorListener){
+
+    public void addColorListener(ColorListener colorListener) {
         listeners.addElement(colorListener);
     }
-    
-    public void removeColorListener(ColorListener colorListener){
+
+    public void removeColorListener(ColorListener colorListener) {
         listeners.removeElement(colorListener);
     }
-    
-    private void fireColorEvent(ColorEvent colorEvent){
+
+    private void fireColorEvent(ColorEvent colorEvent) {
         Vector v;
-        synchronized(this){
-            v = (Vector)listeners.clone();
+        synchronized (this) {
+            v = (Vector) listeners.clone();
         }
         int size = v.size();
-        for(int i=0; i<size; i++){
-            ColorListener colorListener = (ColorListener)v.elementAt(i);
+        for (int i = 0; i < size; i++) {
+            ColorListener colorListener = (ColorListener) v.elementAt(i);
             colorListener.changeColor(colorEvent);
         }
     }

@@ -38,7 +38,6 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
     private void initComponents() {
 
         btnColorChooser = new javax.swing.JButton();
-        testingLbl = new javax.swing.JLabel();
         panColor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,8 +48,6 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
                 btnColorChooserActionPerformed(evt);
             }
         });
-
-        testingLbl.setText("Text");
 
         javax.swing.GroupLayout panColorLayout = new javax.swing.GroupLayout(panColor);
         panColor.setLayout(panColorLayout);
@@ -74,21 +71,13 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(btnColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(testingLbl)
-                .addGap(24, 24, 24))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(testingLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnColorChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
+                .addComponent(btnColorChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(panColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
@@ -142,7 +131,6 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnColorChooser;
     private javax.swing.JPanel panColor;
-    private javax.swing.JLabel testingLbl;
     // End of variables declaration//GEN-END:variables
 
     @Override

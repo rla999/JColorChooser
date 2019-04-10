@@ -60,7 +60,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="colorchooser.HexColorCodeLabel" name="hexColorCodeLabel1">
+    <Component class="colorchooser.HexColorCodeLabel" name="lblHexColor">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Last"/>

@@ -24,8 +24,10 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     public JColorChooserTest() {
         initComponents();
+        ColorChooser colorChooser = new colorchooser.ColorChooser();
         color = new JColorChooser();
         color.addWindowListener(this);
+        colorChooser.addColorListener(lblHexColor);
         btnColorChooser.addActionListener(this);
     }
 
@@ -40,7 +42,7 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
         panColor = new javax.swing.JPanel();
         btnColorChooser = new javax.swing.JButton();
-        hexColorCodeLabel1 = new colorchooser.HexColorCodeLabel();
+        lblHexColor = new colorchooser.HexColorCodeLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +70,7 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
         );
 
         getContentPane().add(panColor, java.awt.BorderLayout.PAGE_START);
-        getContentPane().add(hexColorCodeLabel1, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(lblHexColor, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,7 +120,7 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnColorChooser;
-    private colorchooser.HexColorCodeLabel hexColorCodeLabel1;
+    private colorchooser.HexColorCodeLabel lblHexColor;
     private javax.swing.JPanel panColor;
     // End of variables declaration//GEN-END:variables
 

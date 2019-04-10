@@ -21,8 +21,9 @@ public class JColorChooser extends javax.swing.JFrame {
     public JColorChooser() {
         initComponents();
         color = colorCanvas.getBackground();
-        //colorChooser.addColorListener(colorLabel);
+//        colorChooser.addColorListener(colorLabel);
         colorChooser.addColorListener(colorCanvas);
+        colorChooser.addColorListener(lblHexColor);
     }
 
     /**
@@ -38,7 +39,7 @@ public class JColorChooser extends javax.swing.JFrame {
         colorChooser = new colorchooser.ColorChooser();
         jPanel1 = new javax.swing.JPanel();
         btncolor = new javax.swing.JButton();
-        hexColorCodeLabel1 = new colorchooser.HexColorCodeLabel();
+        lblHexColor = new colorchooser.HexColorCodeLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JColorChooser");
@@ -72,7 +73,7 @@ public class JColorChooser extends javax.swing.JFrame {
                 .addContainerGap(299, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(hexColorCodeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblHexColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btncolor)
@@ -84,7 +85,7 @@ public class JColorChooser extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btncolor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(hexColorCodeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblHexColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -138,8 +139,8 @@ public class JColorChooser extends javax.swing.JFrame {
     private javax.swing.JButton btncolor;
     private colorchooser.ColorCanvas colorCanvas;
     private colorchooser.ColorChooser colorChooser;
-    private colorchooser.HexColorCodeLabel hexColorCodeLabel1;
     private javax.swing.JPanel jPanel1;
+    private colorchooser.HexColorCodeLabel lblHexColor;
     // End of variables declaration//GEN-END:variables
 
     public Color getColor() {

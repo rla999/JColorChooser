@@ -9,12 +9,14 @@ import java.awt.Color;
 import java.util.Vector;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.SwingUtilities;
 
+//Vectors in the real world WOULD NOT be used because they are outdated.
 /**
  *
  * @author 00220682
  */
-public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
+public class ColorChooser extends javax.swing.JPanel implements ChangeListener, ColorListener {
 
     private Vector listeners;
 
@@ -139,6 +141,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
         listeners.removeElement(colorListener);
     }
 
+    //This fire color event is run whenever the state of the program has changed.
     private void fireColorEvent(ColorEvent colorEvent) {
         Vector v;
         synchronized (this) {
@@ -149,5 +152,12 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
             ColorListener colorListener = (ColorListener) v.elementAt(i);
             colorListener.changeColor(colorEvent);
         }
+    }
+
+    @Override
+    public void changeColor(ColorEvent ce) {
+        sldRed.setValue(ce.getColor().getRed());
+        sldGreen.setValue(ce.getColor().getGreen());
+        sldBlue.setValue(ce.getColor().getBlue());
     }
 }

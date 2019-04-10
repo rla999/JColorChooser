@@ -6,7 +6,7 @@
 package colorchooser;
 
 import javax.swing.JLabel;
-//import java.awt.Color;
+import java.awt.Color;
 
 /**
  *
@@ -16,15 +16,15 @@ public class ColorLabel extends JLabel implements ColorListener {
 
     @Override
     public void changeColor(ColorEvent ce) {
-        setText("Red: " + ce.getColor().getRed() + " Green: " + ce.getColor().getGreen() + " Blue: " + ce.getColor().getBlue());
-        //setForeground(ce.getColor());
+//        setText("Red: " + ce.getColor().getRed() + " Green: " + ce.getColor().getGreen() + " Blue: " + ce.getColor().getBlue());
+        setForeground(ce.getColor());
     }
 
     public ColorLabel() {
         super();
-        setText("Red: 0 Green: 0 Blue: 0");
-//        setText("Color Label Test");
-//        setForeground(Color.BLACK);
+//        setText("Red: 0 Green: 0 Blue: 0");
+        setText("Color Label Test");
+        setForeground(Color.BLACK);
     }
 
 }

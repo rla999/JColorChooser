@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package colorchooser;
-
 import javax.swing.JPanel;
-
 /**
  *
- * @author Ryan
+ * @author 00220682
  */
 public class ColorCanvas extends JPanel implements ColorListener {
 
@@ -17,10 +15,10 @@ public class ColorCanvas extends JPanel implements ColorListener {
     public void changeColor(ColorEvent ce) {
         setBackground(ce.getColor());
     }
-
-    public ColorCanvas() {
+    
+    public ColorCanvas(){
         super();
         setBackground(java.awt.Color.BLACK);
     }
-
+    
 }

@@ -4,25 +4,22 @@
  * and open the template in the editor.
  */
 package colorchooser;
-
 import java.util.*;
 import java.awt.Color;
 
 /**
  *
- * @author Ryan
+ * @author 00220682
  */
 public class ColorEvent extends EventObject {
-
     private Color color;
-
-    public ColorEvent(Object source, Color color) {
+    
+    public ColorEvent(Object source, Color color){
         super(source);
         this.color = color;
     }
-
-    public Color getColor() {
+    
+    public Color getColor(){
         return color;
     }
-
 }

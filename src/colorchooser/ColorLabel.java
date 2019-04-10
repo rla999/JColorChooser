@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package colorchooser;
-
 import javax.swing.JLabel;
-
 /**
  *
- * @author Ryan
+ * @author 00220682
  */
 public class ColorLabel extends JLabel implements ColorListener {
 
@@ -17,10 +15,10 @@ public class ColorLabel extends JLabel implements ColorListener {
     public void changeColor(ColorEvent ce) {
         setText("Red: " + ce.getColor().getRed() + " Green: " + ce.getColor().getGreen() + " Blue: " + ce.getColor().getBlue());
     }
-
-    public ColorLabel() {
+    
+    public ColorLabel(){
         super();
         setText("Red: 0 Green: 0 Blue: 0");
     }
-
+    
 }

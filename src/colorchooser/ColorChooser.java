@@ -4,21 +4,15 @@
  * and open the template in the editor.
  */
 package colorchooser;
-
 import java.awt.Color;
-
 import java.util.Vector;
-
 import javax.swing.event.ChangeEvent;
-
 import javax.swing.event.ChangeListener;
-
 /**
  *
- * @author Ryan
+ * @author 00220682
  */
-public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
-
+public class ColorChooser extends javax.swing.JPanel implements ChangeListener{
     private Vector listeners;
 
     /**
@@ -41,16 +35,14 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblRed = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         sldRed = new javax.swing.JSlider();
-        lblGreen = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         sldGreen = new javax.swing.JSlider();
-        lblBlue = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         sldBlue = new javax.swing.JSlider();
 
-        setToolTipText("Color chooser");
-
-        lblRed.setText("Red:");
+        jLabel1.setText("Red");
 
         sldRed.setMajorTickSpacing(50);
         sldRed.setMaximum(255);
@@ -59,7 +51,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
         sldRed.setPaintTicks(true);
         sldRed.setValue(0);
 
-        lblGreen.setText("Green:");
+        jLabel2.setText("Green");
 
         sldGreen.setMajorTickSpacing(50);
         sldGreen.setMaximum(255);
@@ -68,7 +60,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
         sldGreen.setPaintTicks(true);
         sldGreen.setValue(0);
 
-        lblBlue.setText("Blue:");
+        jLabel3.setText("Blue");
 
         sldBlue.setMajorTickSpacing(50);
         sldBlue.setMaximum(255);
@@ -85,20 +77,17 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblRed, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sldRed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(sldGreen, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblGreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sldGreen, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(sldBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sldBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sldRed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -106,15 +95,15 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sldRed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRed))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addComponent(sldRed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGreen)
+                    .addComponent(jLabel2)
                     .addComponent(sldGreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBlue)
+                    .addComponent(jLabel3)
                     .addComponent(sldBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -122,9 +111,9 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblBlue;
-    private javax.swing.JLabel lblGreen;
-    private javax.swing.JLabel lblRed;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSlider sldBlue;
     private javax.swing.JSlider sldGreen;
     private javax.swing.JSlider sldRed;
@@ -135,26 +124,26 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener {
         int r = sldRed.getValue();
         int g = sldGreen.getValue();
         int b = sldBlue.getValue();
-        Color color = new Color(r, g, b);
-        fireColorEvent(new ColorEvent(this, color));
+        Color color = new Color(r,g,b);
+        fireColorEvent(new ColorEvent(this,color));
     }
-
-    public void addColorListener(ColorListener colorListener) {
+    
+    public void addColorListener(ColorListener colorListener){
         listeners.addElement(colorListener);
     }
-
-    public void removeColorListener(ColorListener colorListener) {
+    
+    public void removeColorListener(ColorListener colorListener){
         listeners.removeElement(colorListener);
     }
-
-    private void fireColorEvent(ColorEvent colorEvent) {
+    
+    private void fireColorEvent(ColorEvent colorEvent){
         Vector v;
-        synchronized (this) {
-            v = (Vector) listeners.clone();
+        synchronized(this){
+            v = (Vector)listeners.clone();
         }
         int size = v.size();
-        for (int i = 0; i < size; i++) {
-            ColorListener colorListener = (ColorListener) v.elementAt(i);
+        for(int i=0; i<size; i++){
+            ColorListener colorListener = (ColorListener)v.elementAt(i);
             colorListener.changeColor(colorEvent);
         }
     }

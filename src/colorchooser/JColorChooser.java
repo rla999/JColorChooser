@@ -5,20 +5,23 @@
  */
 package colorchooser;
 
+import java.awt.Color;
+
 /**
  *
- * @author Ryan
+ * @author 00220682
  */
 public class JColorChooser extends javax.swing.JFrame {
+    Color color;
 
     /**
      * Creates new form JColorChooser
      */
     public JColorChooser() {
         initComponents();
-        colorChooser.addColorListener(colorLabel);
+        color = colorCanvas.getBackground();
+        //colorChooser.addColorListener(colorLabel);
         colorChooser.addColorListener(colorCanvas);
-        colorChooser.addColorListener(hexColorCodeLabel);
     }
 
     /**
@@ -30,20 +33,19 @@ public class JColorChooser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        hexColorCodeLabel1 = new colorchooser.HexColorCodeLabel();
         colorCanvas = new colorchooser.ColorCanvas();
-        colorLabel = new colorchooser.ColorLabel();
         colorChooser = new colorchooser.ColorChooser();
-        hexColorCodeLabel = new colorchooser.HexColorCodeLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btncolor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Color Chooser");
+        setTitle("JColorChooser");
 
         javax.swing.GroupLayout colorCanvasLayout = new javax.swing.GroupLayout(colorCanvas);
         colorCanvas.setLayout(colorCanvasLayout);
         colorCanvasLayout.setHorizontalGroup(
             colorCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 446, Short.MAX_VALUE)
         );
         colorCanvasLayout.setVerticalGroup(
             colorCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -51,12 +53,42 @@ public class JColorChooser extends javax.swing.JFrame {
         );
 
         getContentPane().add(colorCanvas, java.awt.BorderLayout.PAGE_START);
-        getContentPane().add(colorLabel, java.awt.BorderLayout.PAGE_END);
         getContentPane().add(colorChooser, java.awt.BorderLayout.CENTER);
-        getContentPane().add(hexColorCodeLabel, java.awt.BorderLayout.LINE_END);
 
-        pack();
+        btncolor.setText("Change Color");
+        btncolor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncolorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(289, Short.MAX_VALUE)
+                .addComponent(btncolor)
+                .addGap(48, 48, 48))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(btncolor)
+                .addGap(27, 27, 27))
+        );
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
+        setSize(new java.awt.Dimension(464, 486));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btncolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncolorActionPerformed
+        color = colorCanvas.getBackground();
+        this.dispose();
+    }//GEN-LAST:event_btncolorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,10 +126,13 @@ public class JColorChooser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncolor;
     private colorchooser.ColorCanvas colorCanvas;
     private colorchooser.ColorChooser colorChooser;
-    private colorchooser.ColorLabel colorLabel;
-    private colorchooser.HexColorCodeLabel hexColorCodeLabel;
-    private colorchooser.HexColorCodeLabel hexColorCodeLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+public Color getColor() {
+    return color;
+}
 }

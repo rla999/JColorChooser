@@ -9,19 +9,19 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author 00220682
+ * @author 01824456
  */
 public class ColorCanvas extends JPanel implements ColorListener {
 
     @Override
     public void changeColor(ColorEvent ce) {
+        //this.setBackground
         setBackground(ce.getColor());
     }
-    
-//constructor; and initiate the super class
+
+    //constructor; and initiate the super class 
     public ColorCanvas() {
         super();
         setBackground(java.awt.Color.BLACK);
     }
-
 }

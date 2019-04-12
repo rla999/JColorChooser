@@ -10,7 +10,7 @@ import java.awt.Color;
 
 /**
  *
- * @author 00220682
+ * @author 01824456
  */
 public class ColorEvent extends EventObject {
 
@@ -24,4 +24,5 @@ public class ColorEvent extends EventObject {
     public Color getColor() {
         return color;
     }
+
 }

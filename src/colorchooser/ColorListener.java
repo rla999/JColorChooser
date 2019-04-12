@@ -9,9 +9,10 @@ import java.util.*;
 
 /**
  *
- * @author 00220682
+ * @author 01824456
  */
 public interface ColorListener extends EventListener {
 
     public void changeColor(ColorEvent ce);
+
 }

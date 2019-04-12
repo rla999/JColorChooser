@@ -6,24 +6,53 @@
 package colorchooser;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 /**
  *
- * @author 01824456
+ * @author Ryan
  */
-public class JColorChooser extends javax.swing.JFrame {
+public class JColorChooser extends javax.swing.JFrame implements ColorListener, ActionListener {
 
-    Color color;
+    private Color color = Color.BLACK;
+    private JComponent component;
 
     /**
      * Creates new form JColorChooser
      */
     public JColorChooser() {
         initComponents();
-        color = colorCanvas.getBackground();
-//        colorChooser.addColorListener(colorLabel);
+        //Listeners for the color chooser (sliders) component.
+        colorChooser.addColorListener(colorTextPanel);
         colorChooser.addColorListener(colorCanvas);
         colorChooser.addColorListener(lblHexColor);
+        colorChooser.addColorListener(this);
+        //Listeners for the color text panel (integer text fields) component.
+        colorTextPanel.addColorListener(colorChooser);
+        colorTextPanel.addColorListener(colorCanvas);
+        colorTextPanel.addColorListener(lblHexColor);
+        colorTextPanel.addColorListener(this);
+        //Listener for the button.
+        btnChangeColor.addActionListener(this);
+    }
+
+    public void addColorListener(ColorListener colorListener) {
+        colorChooser.addColorListener(colorListener);
+        colorTextPanel.addColorListener(colorListener);
+    }
+
+    public void removeColorListener(ColorListener colorListener) {
+        colorChooser.removeColorListener(colorListener);
+        colorTextPanel.removeColorListener(colorListener);
+    }
+
+    public JColorChooser(Color color) {
+        this();
+        this.color = color;
+        colorChooser.fireColorEvent();
+        colorTextPanel.fireColorEvent();
     }
 
     /**
@@ -36,53 +65,62 @@ public class JColorChooser extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        colorCanvas = new colorchooser.ColorCanvas();
-        jPanel2 = new javax.swing.JPanel();
+        colorTextPanel = new colorchooser.ColorTextPanel();
         colorChooser = new colorchooser.ColorChooser();
+        jPanel2 = new javax.swing.JPanel();
+        colorCanvas = new colorchooser.ColorCanvas();
         jPanel3 = new javax.swing.JPanel();
-        colorLabel = new colorchooser.ColorLabel();
         lblHexColor = new colorchooser.HexColorCodeLabel();
-        jLabel1 = new javax.swing.JLabel();
         btnChangeColor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Color Chooser");
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 1));
+        jPanel1.add(colorTextPanel);
+        jPanel1.add(colorChooser);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setLayout(new java.awt.GridLayout(1, 2, 5, 5));
 
         javax.swing.GroupLayout colorCanvasLayout = new javax.swing.GroupLayout(colorCanvas);
         colorCanvas.setLayout(colorCanvasLayout);
         colorCanvasLayout.setHorizontalGroup(
             colorCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 561, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
         colorCanvasLayout.setVerticalGroup(
             colorCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGap(0, 209, Short.MAX_VALUE)
         );
 
-        jPanel1.add(colorCanvas, java.awt.BorderLayout.CENTER);
+        jPanel2.add(colorCanvas);
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setLayout(new java.awt.BorderLayout());
-        jPanel2.add(colorChooser, java.awt.BorderLayout.CENTER);
-
-        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
-
-        jPanel3.setLayout(new java.awt.GridLayout(2, 2, 6, 6));
-
-        colorLabel.setText("Red: 0 Green: 0  Blue: 0 ");
-        jPanel3.add(colorLabel);
+        jPanel3.setLayout(new java.awt.GridLayout(1, 1));
         jPanel3.add(lblHexColor);
-        jPanel3.add(jLabel1);
 
         btnChangeColor.setText("Change Color");
+        btnChangeColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangeColorActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnChangeColor);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnChangeColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeColorActionPerformed
+        // TODO add your handling code here:
+        color = colorCanvas.getBackground();
+        setColor();
+        this.dispose();
+    }//GEN-LAST:event_btnChangeColorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,15 +161,31 @@ public class JColorChooser extends javax.swing.JFrame {
         return color;
     }
 
+    public void setColor() {
+        this.color = color;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangeColor;
     private colorchooser.ColorCanvas colorCanvas;
     private colorchooser.ColorChooser colorChooser;
-    private colorchooser.ColorLabel colorLabel;
-    private javax.swing.JLabel jLabel1;
+    private colorchooser.ColorTextPanel colorTextPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private colorchooser.HexColorCodeLabel lblHexColor;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void changeColor(ColorEvent ce) {
+        this.color = ce.getColor();
+        if (component != null) {
+            this.component.setForeground(ce.getColor());
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        setVisible(false);
+    }
 }

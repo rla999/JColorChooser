@@ -17,7 +17,8 @@ public class ColorCanvas extends JPanel implements ColorListener {
     public void changeColor(ColorEvent ce) {
         setBackground(ce.getColor());
     }
-
+    
+//constructor; and initiate the super class
     public ColorCanvas() {
         super();
         setBackground(java.awt.Color.BLACK);

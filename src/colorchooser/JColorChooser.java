@@ -9,7 +9,7 @@ import java.awt.Color;
 
 /**
  *
- * @author 00220682
+ * @author 01824456
  */
 public class JColorChooser extends javax.swing.JFrame {
 
@@ -35,70 +35,54 @@ public class JColorChooser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        colorCanvas = new colorchooser.ColorCanvas();
-        colorChooser = new colorchooser.ColorChooser();
         jPanel1 = new javax.swing.JPanel();
-        btncolor = new javax.swing.JButton();
+        colorCanvas = new colorchooser.ColorCanvas();
+        jPanel2 = new javax.swing.JPanel();
+        colorChooser = new colorchooser.ColorChooser();
+        jPanel3 = new javax.swing.JPanel();
+        colorLabel = new colorchooser.ColorLabel();
         lblHexColor = new colorchooser.HexColorCodeLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnChangeColor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JColorChooser");
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout colorCanvasLayout = new javax.swing.GroupLayout(colorCanvas);
         colorCanvas.setLayout(colorCanvasLayout);
         colorCanvasLayout.setHorizontalGroup(
             colorCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGap(0, 561, Short.MAX_VALUE)
         );
         colorCanvasLayout.setVerticalGroup(
             colorCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 140, Short.MAX_VALUE)
         );
 
-        getContentPane().add(colorCanvas, java.awt.BorderLayout.PAGE_START);
-        getContentPane().add(colorChooser, java.awt.BorderLayout.CENTER);
+        jPanel1.add(colorCanvas, java.awt.BorderLayout.CENTER);
 
-        btncolor.setText("Change Color");
-        btncolor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncolorActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(299, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblHexColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btncolor)
-                        .addGap(21, 21, 21))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btncolor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(lblHexColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel2.setLayout(new java.awt.BorderLayout());
+        jPanel2.add(colorChooser, java.awt.BorderLayout.CENTER);
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(464, 486));
-        setLocationRelativeTo(null);
+        jPanel3.setLayout(new java.awt.GridLayout(2, 2, 6, 6));
+
+        colorLabel.setText("Red: 0 Green: 0  Blue: 0 ");
+        jPanel3.add(colorLabel);
+        jPanel3.add(lblHexColor);
+        jPanel3.add(jLabel1);
+
+        btnChangeColor.setText("Change Color");
+        jPanel3.add(btnChangeColor);
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btncolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncolorActionPerformed
-        color = colorCanvas.getBackground();
-        this.dispose();
-    }//GEN-LAST:event_btncolorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,15 +119,19 @@ public class JColorChooser extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncolor;
-    private colorchooser.ColorCanvas colorCanvas;
-    private colorchooser.ColorChooser colorChooser;
-    private javax.swing.JPanel jPanel1;
-    private colorchooser.HexColorCodeLabel lblHexColor;
-    // End of variables declaration//GEN-END:variables
-
     public Color getColor() {
         return color;
     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChangeColor;
+    private colorchooser.ColorCanvas colorCanvas;
+    private colorchooser.ColorChooser colorChooser;
+    private colorchooser.ColorLabel colorLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private colorchooser.HexColorCodeLabel lblHexColor;
+    // End of variables declaration//GEN-END:variables
 }

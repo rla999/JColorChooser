@@ -40,8 +40,11 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
         btnColorChooser = new javax.swing.JButton();
         panColor = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDoc = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Color Test");
 
         btnColorChooser.setText("Choose Color");
         btnColorChooser.addActionListener(new java.awt.event.ActionListener() {
@@ -50,37 +53,34 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
             }
         });
 
-        javax.swing.GroupLayout panColorLayout = new javax.swing.GroupLayout(panColor);
-        panColor.setLayout(panColorLayout);
-        panColorLayout.setHorizontalGroup(
-            panColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
-        );
-        panColorLayout.setVerticalGroup(
-            panColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 264, Short.MAX_VALUE)
-        );
+        panColor.setLayout(new java.awt.GridLayout(1, 1));
+
+        txtDoc.setEditable(false);
+        txtDoc.setColumns(20);
+        txtDoc.setRows(5);
+        jScrollPane1.setViewportView(txtDoc);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(btnColorChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btnColorChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addComponent(btnColorChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(panColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -88,10 +88,10 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     private void btnColorChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColorChooserActionPerformed
         JColorChooser obj = new JColorChooser();
-        Object a = obj;
-        int b = JOptionPane.showConfirmDialog(null, a, "a", JOptionPane.OK_CANCEL_OPTION);
-        if (b == 0)
-            getContentPane().setBackground(obj.getForeground());
+//        Object a = obj;
+//        int b = JOptionPane.showConfirmDialog(null, a, "a", JOptionPane.OK_CANCEL_OPTION);
+//        if (b == 0)
+//            getContentPane().setBackground(obj.getForeground());
     }//GEN-LAST:event_btnColorChooserActionPerformed
 
     /**
@@ -131,7 +131,9 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnColorChooser;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panColor;
+    private javax.swing.JTextArea txtDoc;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -144,39 +146,39 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     @Override
     public void windowOpened(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
         if (e.getSource().getClass() == JColorChooser.class) {
             System.out.print("");
-            panColor.setBackground(color.getColor());
+            txtDoc.setBackground(color.getColor());
         }
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowActivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

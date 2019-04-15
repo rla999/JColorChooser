@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Ryan
+ * @author bburk
  */
 public class JColorChooserTest extends javax.swing.JFrame implements ActionListener, WindowListener {
 
@@ -24,10 +24,9 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
 
     public JColorChooserTest() {
         initComponents();
-        ColorChooser colorChooser = new colorchooser.ColorChooser();
         color = new JColorChooser();
         color.addWindowListener(this);
-        btnChooseColor.addActionListener(this);
+        btnColorChooser.addActionListener(this);
     }
 
     /**
@@ -39,31 +38,61 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnColorChooser = new javax.swing.JButton();
         panColor = new javax.swing.JPanel();
-        btnChooseColor = new javax.swing.JButton();
-        lblTest = new colorchooser.ColorLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Color Chooser Test");
 
-        panColor.setLayout(new java.awt.BorderLayout());
-        getContentPane().add(panColor, java.awt.BorderLayout.LINE_END);
-
-        btnChooseColor.setText("Choose Color");
-        btnChooseColor.addActionListener(new java.awt.event.ActionListener() {
+        btnColorChooser.setText("Choose Color");
+        btnColorChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChooseColorActionPerformed(evt);
+                btnColorChooserActionPerformed(evt);
             }
         });
-        getContentPane().add(btnChooseColor, java.awt.BorderLayout.CENTER);
-        getContentPane().add(lblTest, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout panColorLayout = new javax.swing.GroupLayout(panColor);
+        panColor.setLayout(panColorLayout);
+        panColorLayout.setHorizontalGroup(
+            panColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 496, Short.MAX_VALUE)
+        );
+        panColorLayout.setVerticalGroup(
+            panColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 264, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnColorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnColorChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(panColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnChooseColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseColorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnChooseColorActionPerformed
+    private void btnColorChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColorChooserActionPerformed
+        JColorChooser obj = new JColorChooser();
+        Object a = obj;
+        int b = JOptionPane.showConfirmDialog(null, a, "a", JOptionPane.OK_CANCEL_OPTION);
+        if (b == 0)
+            getContentPane().setBackground(obj.getForeground());
+    }//GEN-LAST:event_btnColorChooserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,21 +108,16 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JColorChooserTest.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JColorChooserTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JColorChooserTest.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JColorChooserTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JColorChooserTest.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JColorChooserTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JColorChooserTest.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JColorChooserTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -105,54 +129,54 @@ public class JColorChooserTest extends javax.swing.JFrame implements ActionListe
         });
     }
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnColorChooser;
+    private javax.swing.JPanel panColor;
+    // End of variables declaration//GEN-END:variables
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source == btnChooseColor) {
-            JColorChooser colorChooser = new JColorChooser();
-            colorChooser.addColorListener(lblTest);
-            colorChooser.setVisible(true);
+        if (source == btnColorChooser) {
+            color.setVisible(true);
         }
     }
 
     @Override
-    public void windowOpened(WindowEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void windowOpened(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-//        txtArea.setBackground(color.getColor());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-//        txtArea.setBackground(color.getColor());
+        if (e.getSource().getClass() == JColorChooser.class) {
+            System.out.print("");
+            panColor.setBackground(color.getColor());
+        }
     }
 
     @Override
-    public void windowIconified(WindowEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void windowIconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void windowDeiconified(WindowEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void windowDeiconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void windowActivated(WindowEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void windowActivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void windowDeactivated(WindowEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void windowDeactivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChooseColor;
-    private colorchooser.ColorLabel lblTest;
-    private javax.swing.JPanel panColor;
-    // End of variables declaration//GEN-END:variables
 }

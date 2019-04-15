@@ -145,17 +145,17 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
     @Override
     //Some of these abstract methods are required to be here but we don't have to make them do anything.
     public void keyTyped(KeyEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        fireColorEvent();
     }
 
     @Override
     public void keyPressed(KeyEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        fireColorEvent();
     }
 
     @Override
     public void keyReleased(KeyEvent arg0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        fireColorEvent();
     }
 
     @Override

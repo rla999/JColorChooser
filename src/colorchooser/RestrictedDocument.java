@@ -25,7 +25,7 @@ public class RestrictedDocument extends PlainDocument {
     public boolean validate(String exp) {
         int len = charList.length;
         for (int i = 0; i < len; i++) {
-            if (exp.equals(charList[i])) {
+            if (exp.equals(charList[i]) && Integer.parseInt(exp) >= 0 && Integer.parseInt(exp) <= 255) {
                 return true;
             }
         }

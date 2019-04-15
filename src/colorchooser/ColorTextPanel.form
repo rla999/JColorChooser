@@ -27,6 +27,9 @@
       </Properties>
     </Component>
     <Component class="colorchooser.JIntegerField" name="txtRed">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRedKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -34,6 +37,9 @@
       </Properties>
     </Component>
     <Component class="colorchooser.JIntegerField" name="txtGreen">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtGreenKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -41,6 +47,9 @@
       </Properties>
     </Component>
     <Component class="colorchooser.JIntegerField" name="txtBlue">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBlueKeyReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

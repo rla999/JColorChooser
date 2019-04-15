@@ -66,16 +66,79 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
 
         jLabel1.setText("Red:");
         add(jLabel1);
+
+        txtRed.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRedKeyReleased(evt);
+            }
+        });
         add(txtRed);
 
         jLabel2.setText("Green:");
         add(jLabel2);
+
+        txtGreen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtGreenKeyReleased(evt);
+            }
+        });
         add(txtGreen);
 
         jLabel3.setText("Blue:");
         add(jLabel3);
+
+        txtBlue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBlueKeyReleased(evt);
+            }
+        });
         add(txtBlue);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtGreenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGreenKeyReleased
+        // TODO add your handling code here:
+        try {
+            int val = Integer.parseInt(txtGreen.getText());
+            if (val > 255 || val < 0) {
+                txtGreen.setText("");
+                JOptionPane.showMessageDialog(this, "Please enter an integer value between 0 and 255!!");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter digits only!!");
+            txtGreen.setText("");
+        }
+    }//GEN-LAST:event_txtGreenKeyReleased
+
+    private void txtBlueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBlueKeyReleased
+        // TODO add your handling code here:
+        try {
+            int val = Integer.parseInt(txtBlue.getText());
+            if (val > 255 || val < 0) {
+                txtBlue.setText("");
+                JOptionPane.showMessageDialog(this, "Please enter an integer value between 0 and 255!!");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter digits only!!");
+            txtBlue.setText("");
+        }
+    }//GEN-LAST:event_txtBlueKeyReleased
+
+    private void txtRedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRedKeyReleased
+        // TODO add your handling code here:
+        try {
+            int val = Integer.parseInt(txtRed.getText());
+            if (val > 255 || val < 0) {
+                txtRed.setText("");
+                JOptionPane.showMessageDialog(this, "Please enter an integer value between 0 and 255!!");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter digits only!!");
+            txtRed.setText("");
+        }
+    }//GEN-LAST:event_txtRedKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -130,10 +193,11 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
         try {
             fireColorEvent(new ColorEvent(this, new Color(txtRed.getValue(), txtGreen.getValue(), txtBlue.getValue())));
         } catch (Exception e) {
+//            if (Integer.parseInt(txtBlue.getText()) > 255 || Integer.parseInt(txtBlue.getText()) < 0 || Integer.parseInt(txtGreen.getText()) > 255 || Integer.parseInt(txtGreen.getText()) < 0 || Integer.parseInt(txtRed.getText()) > 255 || Integer.parseInt(txtRed.getText()) < 0) {
             if (errorDisplay != 0) {//If user clicks no, then they won't see any more warnings for invalid data but the app will still reject it just the same.
                 errorDisplay = JOptionPane.showConfirmDialog(
                         null,
-                        "Please enter a valid integer between 0-255!! Click no to stop receiving these warnings!",
+                        "Please enter an integer value between 0 and 255!!",
                         "Invalid Data!",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.WARNING_MESSAGE

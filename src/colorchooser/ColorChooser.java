@@ -12,7 +12,10 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author 01824456
+ * Rich initially got this to work in conjunction with the text fields which
+ * were originally in the same class as the sliders. Ryan found the app was
+ * easier to integrate components together when the text fields and sliders were
+ * separate.
  */
 public class ColorChooser extends javax.swing.JPanel implements ChangeListener, ColorListener {
 
@@ -84,23 +87,29 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
 //        int b = sldBlue.getValue();
 //        Color color = new Color(r, g, b);
 //        Color color = new Color(sldRed.getValue(), sldGreen.getValue(), sldBlue.getValue());
+
+//When the state of the sliders have changed, then fire a color event. Does all the work of the old code from above in the fireColorEvent method.
         fireColorEvent();
     }
 
     public void fireColorEvent() {
+        //Fire a new color event using the RGB values of the sliders.
         fireColorEvent(new ColorEvent(this, new Color(sldRed.getValue(), sldGreen.getValue(), sldBlue.getValue())));
     }
 
     public void addColorListener(ColorListener colorListener) {
+        //Add a color listener to the vector collection.
         listeners.addElement(colorListener);
     }
 
     public void removeColorListener(ColorListener colorListener) {
+        //Remove a color listener from the vector collection.
         listeners.removeElement(colorListener);
 
     }
 
     private void fireColorEvent(ColorEvent colorEvent) {
+        //This method remains unmodified from the professor's code.
         Vector v;
         synchronized (this) {
             v = (Vector) listeners.clone();
@@ -113,6 +122,7 @@ public class ColorChooser extends javax.swing.JPanel implements ChangeListener, 
     }
 
     @Override
+    //Whenever a change in the color is detected, it is necessary to update the slider values.
     public void changeColor(ColorEvent ce) {
         sldRed.setValue(ce.getColor().getRed());
         sldGreen.setValue(ce.getColor().getGreen());

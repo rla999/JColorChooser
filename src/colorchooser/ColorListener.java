@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author 01824456
+ * Unmodified from professor's lite version of the app.
  */
 public interface ColorListener extends EventListener {
 

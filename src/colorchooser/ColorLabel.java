@@ -10,7 +10,8 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author 01824456
+ * Mostly unmodified from professor's version of the app. Ben and Ryan modified
+ * this label to work with the test class.
  */
 public class ColorLabel extends JLabel implements ColorListener {
 

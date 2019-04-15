@@ -12,18 +12,26 @@ import javax.swing.*;
 
 /**
  *
- * @author Ryan
+ * Honestly, all three of us had a role in this form at some point in the dev
+ * process. Ryan did have to integrate all components here and separate out the
+ * sliders from the text fields because they were originally glued together and
+ * synced with Netbeans binding (Rich's version), which caused too many issues
+ * and that didn't work on everybody's computer. Ryan figured out how to make it
+ * all play nice with manual action, event, and doc listeners instead. Ben had a
+ * version of the form that worked with his test component. Ryan had the idea of
+ * converting most panels in the JFrame to grid layout to make it easier to work
+ * with.
  */
 public class JColorChooser extends javax.swing.JFrame implements ColorListener, ActionListener {
 
-    private Color color = Color.BLACK;
-    private JComponent component;
+    private Color color = Color.BLACK;//Default color is black.
 
     /**
      * Creates new form JColorChooser
      */
     public JColorChooser() {
         initComponents();
+        //COLLEGE LEVEL WORK!!!!!
         //Listeners for the color chooser (sliders) component.
         colorChooser.addColorListener(colorTextPanel);
         colorChooser.addColorListener(colorCanvas);
@@ -38,16 +46,19 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener, 
         btnChangeColor.addActionListener(this);
     }
 
+    //Add 2 color listeners (sliders and text fields) to the vector collection.
     public void addColorListener(ColorListener colorListener) {
         colorChooser.addColorListener(colorListener);
         colorTextPanel.addColorListener(colorListener);
     }
 
+    //Remove 2 color listeners (sliders and text fields) from the vector collection.
     public void removeColorListener(ColorListener colorListener) {
         colorChooser.removeColorListener(colorListener);
         colorTextPanel.removeColorListener(colorListener);
     }
 
+    //Fire the color events for the slider and the text fields at the same time. This is the "magic" of how to keep them in sync without using binding which isn't included in newer Netbeans.
     public JColorChooser(Color color) {
         this();
         this.color = color;
@@ -116,7 +127,7 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener, 
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChangeColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeColorActionPerformed
-        // TODO add your handling code here:
+        // When the change color button is pressed, it grabs the background color of the canvas and sets the color variable which is shared with the test component and disposes the window.
         color = colorCanvas.getBackground();
         setColor();
         this.dispose();
@@ -157,10 +168,12 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener, 
         });
     }
 
+    //Returns the current color value as an integer.
     public Color getColor() {
         return color;
     }
 
+    //Sets the current color as an integer. This method helps the test class work.
     public void setColor() {
         this.color = color;
     }
@@ -177,14 +190,13 @@ public class JColorChooser extends javax.swing.JFrame implements ColorListener, 
     // End of variables declaration//GEN-END:variables
 
     @Override
+    //Upon changing the color value, update the color variable. If the component is not empty, update the foreground color.
     public void changeColor(ColorEvent ce) {
         this.color = ce.getColor();
-        if (component != null) {
-            this.component.setForeground(ce.getColor());
-        }
     }
 
     @Override
+    //Hides the window when an action is performed. Don't know if this does anything different than the change color button.
     public void actionPerformed(ActionEvent e) {
         setVisible(false);
     }

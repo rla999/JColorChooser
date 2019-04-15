@@ -10,7 +10,7 @@ import java.awt.Color;
 
 /**
  *
- * @author 01824456
+ * Unmodified from professor's lite version of the app.
  */
 public class ColorEvent extends EventObject {
 

@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author 01824456
+ * Unmodified from the professor's lite version of the app.
  */
 public class ColorCanvas extends JPanel implements ColorListener {
 

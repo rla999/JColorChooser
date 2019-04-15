@@ -5,6 +5,7 @@
  */
 package colorchooser;
 
+//We did add a lot of imports for things like color, the different listeners, vector, swing tools..
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,12 +19,13 @@ import javax.swing.event.DocumentListener;
 
 /**
  *
- * @author Ryan
+ * Color Text Panel - Rich's idea Integrated into main app (with some slight
+ * code cleanup) by Ryan.
  */
 public class ColorTextPanel extends javax.swing.JPanel implements ColorListener, ActionListener, KeyListener, DocumentListener {
 
     private Vector listeners;
-    int errorDisplay = 0;
+    int errorDisplay = 0;//Variable to control if user wants to keep receiving annoying warning messages for invalid input.
 
     /**
      * Creates new form ColorTextPanel
@@ -31,12 +33,14 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
     public ColorTextPanel() {
         initComponents();
         listeners = new Vector();
+        //I guess this is what college level work comes down to make everything work. The action and key listeners for the text fields similar to the ones for the sliders in ColorChooser.
         txtRed.addActionListener(this);
         txtGreen.addActionListener(this);
         txtBlue.addActionListener(this);
         txtRed.addKeyListener(this);
         txtGreen.addKeyListener(this);
         txtBlue.addKeyListener(this);
+        //Document listeners are also important to help us with the validation routines outlined in RestrictedDocument/JIntegerField.
         txtRed.getDocument().addDocumentListener(this);
         txtGreen.getDocument().addDocumentListener(this);
         txtBlue.getDocument().addDocumentListener(this);
@@ -84,12 +88,15 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
     // End of variables declaration//GEN-END:variables
 
     @Override
+    //This method is called whenever the app detects a change to the value of the text field whether that be through the sliders changing or manual input.
     public void changeColor(ColorEvent ce) {
+        //Netbeans got angry if there were no wrapper classes because you can't directly convert an int (the return value of getColor) to a string (the parameter for setText).
         txtRed.setText(Integer.toString(ce.getColor().getRed()));
         txtGreen.setText(Integer.toString(ce.getColor().getGreen()));
         txtBlue.setText((Integer.toString(ce.getColor().getBlue())));
     }
 
+    //This method is unchanged from the professor's lite version of the app.
     private void fireColorEvent(ColorEvent colorEvent) {
         Vector v;
         synchronized (this) {
@@ -102,11 +109,28 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
         }
     }
 
+    //Adds a color listener to the vector collection.
+    public void addColorListener(ColorListener colorListener) {
+        listeners.addElement(colorListener);
+    }
+
+    //Removes a color listener from the vector collection.
+    public void removeColorListener(ColorListener colorListener) {
+        listeners.removeElement(colorListener);
+    }
+
+    @Override
+    //Whenever an action is performed, immediately fire a color event.
+    public void actionPerformed(ActionEvent arg0) {
+        fireColorEvent();
+    }
+
+    //This public method is used to run the private method fireColorEvent using the RGB parameters. If it fails because invalid data (!=0-255), then we have a dialog box appear to warn.
     public void fireColorEvent() {
         try {
             fireColorEvent(new ColorEvent(this, new Color(txtRed.getValue(), txtGreen.getValue(), txtBlue.getValue())));
         } catch (Exception e) {
-            if (errorDisplay != 0) {
+            if (errorDisplay != 0) {//If user clicks no, then they won't see any more warnings for invalid data but the app will still reject it just the same.
                 errorDisplay = JOptionPane.showConfirmDialog(
                         null,
                         "Please enter a valid integer between 0-255!! Click no to stop receiving these warnings!",
@@ -118,20 +142,8 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
         }
     }
 
-    public void addColorListener(ColorListener colorListener) {
-        listeners.addElement(colorListener);
-    }
-
-    public void removeColorListener(ColorListener colorListener) {
-        listeners.removeElement(colorListener);
-    }
-
     @Override
-    public void actionPerformed(ActionEvent arg0) {
-        fireColorEvent();
-    }
-
-    @Override
+    //Some of these abstract methods are required to be here but we don't have to make them do anything.
     public void keyTyped(KeyEvent arg0) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

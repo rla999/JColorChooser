@@ -62,20 +62,14 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
 
         jLabel1.setText("Red:");
         add(jLabel1);
-
-        txtRed.setText("jIntegerField1");
         add(txtRed);
 
         jLabel2.setText("Green:");
         add(jLabel2);
-
-        txtGreen.setText("jIntegerField2");
         add(txtGreen);
 
         jLabel3.setText("Blue:");
         add(jLabel3);
-
-        txtBlue.setText("jIntegerField3");
         add(txtBlue);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -115,7 +109,7 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
             if (errorDisplay == 0) {
                 errorDisplay = JOptionPane.showConfirmDialog(
                         null,
-                        "Please enter a valid integer between 0-255!!",
+                        "Please enter a valid integer between 0-255!! Click no to stop receiving these warnings!",
                         "Invalid Data!",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.WARNING_MESSAGE

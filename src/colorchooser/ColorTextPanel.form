@@ -27,9 +27,6 @@
       </Properties>
     </Component>
     <Component class="colorchooser.JIntegerField" name="txtRed">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jIntegerField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -37,9 +34,6 @@
       </Properties>
     </Component>
     <Component class="colorchooser.JIntegerField" name="txtGreen">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jIntegerField2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -47,9 +41,6 @@
       </Properties>
     </Component>
     <Component class="colorchooser.JIntegerField" name="txtBlue">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jIntegerField3"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

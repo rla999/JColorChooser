@@ -85,9 +85,9 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
 
     @Override
     public void changeColor(ColorEvent ce) {
-        txtRed.setText(ce.getColor().getRed() + "");
-        txtGreen.setText(ce.getColor().getGreen() + "");
-        txtBlue.setText(ce.getColor().getBlue() + "");
+        txtRed.setText(Integer.toString(ce.getColor().getRed()));
+        txtGreen.setText(Integer.toString(ce.getColor().getGreen()));
+        txtBlue.setText((Integer.toString(ce.getColor().getBlue())));
     }
 
     private void fireColorEvent(ColorEvent colorEvent) {
@@ -106,7 +106,7 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
         try {
             fireColorEvent(new ColorEvent(this, new Color(txtRed.getValue(), txtGreen.getValue(), txtBlue.getValue())));
         } catch (Exception e) {
-            if (errorDisplay == 0) {
+            if (errorDisplay != 0) {
                 errorDisplay = JOptionPane.showConfirmDialog(
                         null,
                         "Please enter a valid integer between 0-255!! Click no to stop receiving these warnings!",

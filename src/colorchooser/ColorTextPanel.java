@@ -56,11 +56,11 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtRed = new colorchooser.JIntegerField();
+        txtRed = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtGreen = new colorchooser.JIntegerField();
+        txtGreen = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtBlue = new colorchooser.JIntegerField();
+        txtBlue = new javax.swing.JTextField();
 
         setLayout(new java.awt.GridLayout(3, 2, 3, 4));
 
@@ -95,8 +95,21 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
         add(txtBlue);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtRedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRedKeyReleased
+        try {
+            int val = Integer.parseInt(txtRed.getText());
+            if (val > 255 || val < 0) {
+                txtRed.setText("");
+                JOptionPane.showMessageDialog(this, "Please enter an integer value between 0 and 255!!");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter digits only!!");
+            txtRed.setText("");
+        }
+    }//GEN-LAST:event_txtRedKeyReleased
+
     private void txtGreenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGreenKeyReleased
-        // TODO add your handling code here:
         try {
             int val = Integer.parseInt(txtGreen.getText());
             if (val > 255 || val < 0) {
@@ -111,7 +124,6 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
     }//GEN-LAST:event_txtGreenKeyReleased
 
     private void txtBlueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBlueKeyReleased
-        // TODO add your handling code here:
         try {
             int val = Integer.parseInt(txtBlue.getText());
             if (val > 255 || val < 0) {
@@ -125,29 +137,14 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
         }
     }//GEN-LAST:event_txtBlueKeyReleased
 
-    private void txtRedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRedKeyReleased
-        // TODO add your handling code here:
-        try {
-            int val = Integer.parseInt(txtRed.getText());
-            if (val > 255 || val < 0) {
-                txtRed.setText("");
-                JOptionPane.showMessageDialog(this, "Please enter an integer value between 0 and 255!!");
-
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Please enter digits only!!");
-            txtRed.setText("");
-        }
-    }//GEN-LAST:event_txtRedKeyReleased
-
-
+//
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private colorchooser.JIntegerField txtBlue;
-    private colorchooser.JIntegerField txtGreen;
-    private colorchooser.JIntegerField txtRed;
+    private javax.swing.JTextField txtBlue;
+    private javax.swing.JTextField txtGreen;
+    private javax.swing.JTextField txtRed;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -191,7 +188,7 @@ public class ColorTextPanel extends javax.swing.JPanel implements ColorListener,
     //This public method is used to run the private method fireColorEvent using the RGB parameters. If it fails because invalid data (!=0-255), then we have a dialog box appear to warn.
     public void fireColorEvent() {
         try {
-            fireColorEvent(new ColorEvent(this, new Color(txtRed.getValue(), txtGreen.getValue(), txtBlue.getValue())));
+            fireColorEvent(new ColorEvent(this, new Color(Integer.parseInt(txtRed.getText()), Integer.parseInt(txtGreen.getText()), Integer.parseInt(txtBlue.getText()))));
         } catch (Exception e) {
 //            if (Integer.parseInt(txtBlue.getText()) > 255 || Integer.parseInt(txtBlue.getText()) < 0 || Integer.parseInt(txtGreen.getText()) > 255 || Integer.parseInt(txtGreen.getText()) < 0 || Integer.parseInt(txtRed.getText()) > 255 || Integer.parseInt(txtRed.getText()) < 0) {
             if (errorDisplay != 0) {//If user clicks no, then they won't see any more warnings for invalid data but the app will still reject it just the same.
